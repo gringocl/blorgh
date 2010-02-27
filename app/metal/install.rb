@@ -32,8 +32,8 @@ class Install < Sinatra::Base
           end
         end
         @password = SecureRandom.hex(8)
-        User.find_by_username("admin").destroy
-        User.create!(:username => "admin", :email => "admin@blorgh.com", :password => @password)
+        User.find_by_login("admin").destroy
+        User.create!(:login => "admin", :password => @password, :password_confirmation => @password)
         Post.first
         Rake::Task['db:seed'].invoke
         render :complete

@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the install page/
       '/install'
+    when /the admin page/
+      '/admin'
 
     
     # Add more mappings here.

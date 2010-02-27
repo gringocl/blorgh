@@ -12,8 +12,3 @@ Feature: Installing Blorgh
     Then I should see "Blorgh install successful!"
     When I follow "continue"
     Then I should see "Welcome to Blorgh!"
-  
-  
-  
-
-  
