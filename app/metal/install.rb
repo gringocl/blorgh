@@ -31,8 +31,12 @@ class Install < Sinatra::Base
             ActiveRecord::Base.establish_connection(YAML.load_file(database_yml)["production"])
           end
         end
+        
+        user = User.find_by_login("admin")
+        user.destroy if user
+        
         @password = SecureRandom.hex(8)
-        User.find_by_login("admin").destroy
+        
         User.create!(:login => "admin", :password => @password, :password_confirmation => @password)
         Post.first
         Rake::Task['db:seed'].invoke
