@@ -46,7 +46,7 @@ class Install < Sinatra::Base
     def database_config
       params[:database].delete("socket") if params[:database][:socket].blank?
       p params[:database]
-      test = params[:database].merge(:database => params[:database][:database] + '_test')
+      test = params[:database].merge("database" => params[:database][:database] + '_test')
       production = params[:database]
       { 'standard' => production, 
         'production' => production,
