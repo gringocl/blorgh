@@ -10,8 +10,8 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
-    when /the new install page/
-      new_install_path
+    when /the install page/
+      '/install'
 
     
     # Add more mappings here.

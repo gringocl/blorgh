@@ -24,10 +24,18 @@ class Install < Sinatra::Base
   
     def complete
       begin
-        Rake::Task['db:create:all'].invoke
-        Rake::Task['db:schema:load'].invoke
-        ActiveRecord::Base.establish_connection(YAML.load_file(database_yml)["production"])
+        silence_stream(STDOUT) do
+          silence_stream(STDERR) do
+            Rake::Task['db:create:all'].invoke
+            Rake::Task['db:schema:load'].invoke
+            ActiveRecord::Base.establish_connection(YAML.load_file(database_yml)["production"])
+          end
+        end
+        @password = SecureRandom.hex(8)
+        User.find_by_username("admin").destroy
+        User.create!(:username => "admin", :email => "admin@blorgh.com", :password => @password)
         Post.first
+        Rake::Task['db:seed'].invoke
         render :complete
       rescue Exception => @e
         error(@e.message)
@@ -41,7 +49,6 @@ class Install < Sinatra::Base
   
     def database_config
       params[:database].delete("socket") if params[:database][:socket].blank?
-      p params[:database]
       test = params[:database].merge("database" => params[:database][:database] + '_test')
       production = params[:database]
       { 'standard' => production, 
