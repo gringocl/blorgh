@@ -32,6 +32,7 @@ class Install < Sinatra::Base
         `touch #{Rails.root + 'tmp/restart.txt'}`
         `rm -rf #{Rails.root + 'public/index.html'}`
         `rm -rf #{Rails.root + 'app/metal/install.rb'}`
+        `rm -rf #{Rails.root + 'app/views/install'}`
       rescue Exception => @e
         error(@e.message)
         render :error
