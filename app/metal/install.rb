@@ -27,11 +27,11 @@ class Install < Sinatra::Base
         Rake::Task['db:create:all'].invoke
         Rake::Task['db:schema:load'].invoke
         ActiveRecord::Base.establish_connection(YAML.load_file(database_yml)["production"])
+        render :complete
         Post.first
         `touch #{Rails.root + 'tmp/restart.txt'}`
         `rm -rf #{Rails.root + 'public/index.html'}`
         `rm -rf #{Rails.root + 'app/metal/install.rb'}`
-        render :complete
       rescue Exception => @e
         error(@e.message)
         render :error
