@@ -1,0 +1,46 @@
+body {
+  font: 12pt "Lucida Grande";
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  margin-top: 3px;
+}
+
+label {
+  float: left;
+  width: 15em;
+}
+#error {
+  border: 5px solid #770000;
+  padding: 5px;
+  background: #990E00;
+  color: white;
+}
+
+#stacktrace {
+  width: 100%;
+}
+
+#stacktrace thead td {
+  background: #5C7D99;
+  color: white;
+}
+
+#stacktrace td {
+  padding: 5px;
+  margin: 0;
+}
+
+#stacktrace .odd td {
+  background: #CCE4FF;
+}
+
+#stacktrace .even td {
+  background: #B2D9E1;
+}

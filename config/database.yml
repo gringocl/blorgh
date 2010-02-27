@@ -1,0 +1,15 @@
+--- 
+production: &id001 
+  adapter: mysql
+  username: root
+  database: blorgh
+  password: ""
+development: *id001
+cucumber: &id002 
+  username: root
+  adapter: mysql
+  :database: blorgh_test
+  database: blorgh
+  password: ""
+test: *id002
+standard: *id001
