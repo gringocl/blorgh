@@ -1,2 +1,8 @@
-
 Welcome to the Blorgh Admin page!
+
+<p>
+  <small>
+    There <%= is(Post.count) %> currently <%= pluralize(Post.count, "post") %>, <%= pluralize(User.count, "user") %>, <%= pluralize(Comment.ham_count, "real comment") %> and <%= pluralize(Comment.spam_count, "spam comment") %>.
+  </small>
+</p>
+</table>

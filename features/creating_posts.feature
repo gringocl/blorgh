@@ -16,6 +16,16 @@ Feature: Creating posts
     And I press "Post"
     Then I should see "Post created."
     
+  Scenario: Creating a post from the home page
+    Given I am on the homepage
+    When I follow "Admin"
+    And I follow "Posts"
+    And I follow "New"
+    And I fill in "Title" with "Blorgh is awesome!"
+    And I fill in "Text" with "Blorgh blows my mind!"
+    And I press "Post"
+    Then I should see "Post created."
+    
   Scenario: Attempting to create a post with no title fails
     And I fill in "Text" with "Blorgh blows my mind!"
     And I press "Post"

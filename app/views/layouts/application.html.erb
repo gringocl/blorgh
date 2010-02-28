@@ -1,8 +1,11 @@
 <% content_for :sidebar do %>
   <% if logged_in? %>
-    Logged in as <%= current_user.login %>
+    Logged in as <%= current_user.login %><br>
+    <% if current_user.admin? %>
+      <%= link_to "Admin", admin_root_path %>
+    <% end %>
   <% else %>
-    <%= link_to "Login", login_path %> /
+    <%= link_to "Login", login_path %><br>
     <%= link_to "Register", register_path %>
   <% end %>
   <h3>Archives</h3>

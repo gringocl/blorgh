@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   attr_protected :admin
   
   has_many :posts
+  
+  def to_s
+    name || login
+  end
 end

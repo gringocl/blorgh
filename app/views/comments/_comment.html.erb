@@ -1,2 +1,2 @@
-<strong><%= comment.user %> wrote <%= comment.created_at %>:</strong>
+<strong><%= distance_of_time_in_words(Time.now, comment.created_at, true, :precision => 1) %> ago <%= comment.user %> wrote:</strong><br>
 <%= comment.text %>

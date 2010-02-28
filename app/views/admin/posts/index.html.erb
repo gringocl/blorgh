@@ -1,18 +1,27 @@
-<table id='posts'>
-  <thead>
-    <tr>
-      <td>Post</td>
-      <td>Author</td>
-      <td>Date</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% for post in @posts %>
+<% unless @posts.empty? %>
+  <table id='posts' width='100%'>
+    <thead>
       <tr>
-        <td><%= link_to post.title, edit_admin_post_path(post), :id => "edit_post_#{post.id}" %></td>
-        <td><%= post.user %></td>
-        <td><%= post.created_at("%Y/%m/%d") %></td>
+        <td>Post</td>
+        <td>Author</td>
+        <td>Date</td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% for post in @posts %>
+        <tr>
+          <td><%= link_to post.title, edit_admin_post_path(post), :id => "edit_post_#{post.id}" %></td>
+          <td><%= post.user %></td>
+          <td>
+            <%= dotiw(post.created_at) %>
+            <% unless post.created_at.today? %>
+              <small> - <%= post.created_at.strftime("%B %d %Y") %></small>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  There are no Blorgh posts :(
+<% end %>

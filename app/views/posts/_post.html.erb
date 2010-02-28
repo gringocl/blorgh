@@ -1,5 +1,8 @@
 <h2><%= link_to post.title, post %></h2>
-Posted <%= distance_of_time_in_words(Time.now, post.created_at, true, { :except => ["minutes", "seconds"] }) %> ago -
+Posted <%= distance_of_time_in_words(Time.now, post.created_at, false, :precision => 2) %> ago -
 <span class='comments_count'><%= link_to(pluralize(post.comments.ham_count, "comment"), post_path(post)) %></span>
+<% if current_user.admin? %>
+  <small>- <%= link_to "Edit", edit_admin_post_path(post) %></small>
+<% end %>
 
 <%= simple_format(post.text) %>

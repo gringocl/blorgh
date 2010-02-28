@@ -1,4 +1,7 @@
+<% content_for :sidebar do %>
+  <%= render :partial => "#{params[:controller]}/menu" %>
+<% end %>
+
 <%= render :partial => "layouts/header" %>
-<%= render :partial => "#{params[:controller]}/menu" %>
 <%= yield %>
 <% render :partial => "layouts/footer" %>

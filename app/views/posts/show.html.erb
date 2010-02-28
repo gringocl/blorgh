@@ -1,8 +1,11 @@
 <%= render :partial => @post %>
 
-<% form_for([@post, @comment]) do |f| %>
-  <%= render :partial => "comments/form", :locals => { :f => f } %>
-<% end %>
+<div id='comment_form'>
+  <h3>New Comment</h3>
+  <% form_for([@post, @comment]) do |f| %>
+    <%= render :partial => "comments/form", :locals => { :f => f } %>
+  <% end %>
+</div>
 
 <% for comment in @post.comments %>
   <%= render :partial => comment %>
