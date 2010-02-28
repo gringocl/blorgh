@@ -30,8 +30,10 @@ class ApplicationController < ActionController::Base
   end
 
   def load_archive_dates
-    @months = Post.all(:select => "created_at", :group => "year(created_at), month(created_at)").map! do |post|
-      [post.created_at.strftime("%B"), post.created_at.strftime("%m"), post.created_at.strftime("%Y")]
+    @months = []
+    Post.all.group_by { |p| p.created_at.strftime("%B %Y")}.each do |month, posts|
+      post = posts.first
+      @months << [post.created_at.strftime("%B"), post.created_at.strftime("%m"), post.created_at.strftime("%Y")]
     end
   end
   
