@@ -12,3 +12,5 @@ Rails::Initializer.run do |config|
   config.gem 'dotiw'
   config.time_zone = 'UTC'
 end
+
+require 'digest/md5'

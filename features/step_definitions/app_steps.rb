@@ -8,6 +8,7 @@ Given /^there is an (admin|user) with the login of "([^\"]*)" and password "([^\
 end
 
 Given /^the usual setup$/ do
+  Post.delete_all # posting_a_comment fails otherwise
   u = User.find_by_login("admin") || User.make(:admin)
   u.admin = true
   u.save!
