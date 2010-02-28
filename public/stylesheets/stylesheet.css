@@ -34,9 +34,23 @@ thead tr td {
   font-weight: bold;
 }
 
+.flash {
+  -moz-border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 3px;
+}
+
+.flash#failure {
+  background: #FFADA7;
+}
+
+.flash#success {
+  background: #ADFFA7;
+}
+
 #content, #sidebar {
-  background: white;
   -moz-border-radius: 17px;
+  background: white;
   padding: 20px;
   border: 2px solid #ededed;
 }
