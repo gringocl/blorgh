@@ -1,0 +1,5 @@
+<h2>Editing Post: <%= @post.title %></h2>
+
+<% form_for [:admin, @post] do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+<% end %>

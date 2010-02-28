@@ -1,0 +1,12 @@
+<%= error_messages_for :post %>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :text %>
+  <%= f.text_area :text %>
+</p>
+
+<%= f.submit @post.new_record? ? "Post" : "Update Post" %>

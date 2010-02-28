@@ -1,0 +1,6 @@
+<% inside_layout :admin do %>
+  <div class='menu' id='posts_menu'>
+    <%= link_to "New", new_admin_post_path %>
+  </div>
+  <%= yield %>
+<% end %>

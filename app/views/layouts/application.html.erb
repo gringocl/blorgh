@@ -8,6 +8,11 @@
     <%= stylesheet_link_tag "stylesheet" %>
   </head>
   <body>
+    <% flash.each do |key, message| %>
+      <div class='flash' id='<%= key %>'>
+        <%= message %>
+      </div>
+    <% end %>
     <div id='menu'>
       <%= link_to "Login", login_path %>
     </div>

@@ -1,0 +1,5 @@
+<h2>Creating a new post</h2>
+
+<% form_for [:admin, @post] do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+<% end %>
