@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
   def load_archive_dates
     @months = []
     Post.all.group_by { |p| p.created_at.strftime("%B %Y")}.each do |month, posts|
+      post = posts.first
       @months << [post.created_at.strftime("%B"), post.created_at.strftime("%m"), post.created_at.strftime("%Y")]
     end
     @months
