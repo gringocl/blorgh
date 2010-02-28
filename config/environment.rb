@@ -8,7 +8,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem 'authlogic'
-  config.gem 'nested-layouts', :lib => "nested_layouts"
   config.gem 'by_star'
   config.gem 'dotiw'
   config.time_zone = 'UTC'
