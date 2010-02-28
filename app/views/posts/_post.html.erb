@@ -1,4 +1,5 @@
 <h2><%= link_to post.title, post %></h2>
-<div class='comments_count'><%= pluralize(post.comments.ham_count, "comment") %></div>
+Posted <%= distance_of_time_in_words(Time.now, post.created_at, true, { :except => ["minutes", "seconds"] }) %> ago -
+<span class='comments_count'><%= link_to(pluralize(post.comments.ham_count, "comment"), post_path(post)) %></span>
 
 <%= simple_format(post.text) %>
