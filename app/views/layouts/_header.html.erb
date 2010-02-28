@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag "stylesheet" %>
   </head>
   <body>
+    <h1><%= link_to "Blorgh", root_path %></h1>
     <% flash.each do |key, message| %>
       <div class='flash' id='<%= key %>'>
         <%= message %>
