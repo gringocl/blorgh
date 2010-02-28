@@ -35,3 +35,9 @@ Feature: Posting a comment
     And I press "Comment"
     Then I should see "Thanks for your comment"
     And I should see the post has 0 comments
+    
+  Scenario: Posting a comment with no text results in an error
+    Given I am on the homepage
+    Given I follow "Welcome to Blorgh!"
+    And I press "Comment"
+    Then I should see "Could not post your comment."

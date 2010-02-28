@@ -7,8 +7,10 @@ class CommentsController < ApplicationController
       flash[:success] = "Thanks for your comment!"
       redirect_to @post
     else
+      # Remove it otherwise it tries to render it.
+      @post.comments -= [@comment]
       flash[:error] = "Could not post your comment."
-      render :action => "posts/show"
+      render :template => "posts/show"
     end
   end
   
