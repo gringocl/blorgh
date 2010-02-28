@@ -40,7 +40,10 @@ class Admin::PostsController < Admin::ApplicationController
   private
   
     def find_post
-      @post = Post.find_by_permalink(params[:id])
+      @post = Post.find_by_permalink!(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:failure] = "The post you were looking for could not be found."
+      redirect_to root_path
     end
     
 end

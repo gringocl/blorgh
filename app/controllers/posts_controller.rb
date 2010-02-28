@@ -12,4 +12,11 @@ class PostsController < ApplicationController
     @posts = Post.by_month(params[:month].to_i, :year => params[:year])
     render :action => "index"
   end
+  
+  def feed
+    @posts = Post.all
+    respond_to do |format|
+      format.atom
+    end
+  end
 end
