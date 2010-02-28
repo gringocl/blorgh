@@ -3,11 +3,11 @@ body {
   background: #CFEBFF;
 }
 
-body, textarea, input[type=text] {
+body, textarea, input[type=text], input[type=password] {
   font: 14pt "Baskerville";
 }
 
-input[type=text], textarea {
+input[type=text], input[type=password], textarea {
   padding: 5px;
 }
 
