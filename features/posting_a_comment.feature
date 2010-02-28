@@ -14,6 +14,7 @@ Feature: Posting a comment
     And I press "Comment"
     Then I should see "Thanks for your comment!"
     And I should see the post has 1 comment
+    And I should see "I really love the enthusiastic attitude you have towards writing."
     
   Scenario: Posting a spam comment just sends it away
     And I fill in "Text" with "-online 4u 4-u acne adipex advicer baccarrat blackjack bllogspot booker buy byob carisoprodol"

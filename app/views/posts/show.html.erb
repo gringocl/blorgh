@@ -3,3 +3,8 @@
 <% form_for([@post, @comment]) do |f| %>
   <%= render :partial => "comments/form", :locals => { :f => f } %>
 <% end %>
+
+<% for comment in @post.comments %>
+  <%= render :partial => comment %>
+<% end %>
+
