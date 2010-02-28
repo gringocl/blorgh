@@ -5,7 +5,7 @@ class Admin::ApplicationController < ApplicationController
   private
   
   def admin_required
-    if !current_user.admin?
+    if !logged_in? || !current_user.admin?
       flash[:error] = "You are not allowed in there! You are not an admin."
       redirect_to root_path
     end
