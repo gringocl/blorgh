@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   
   acts_as_snook :body_field => :text
   
-  validates_presence_of :text, :name, :post_id
+  validates_presence_of :text, :name, :post_id, :email
   
   before_save :set_name_and_email
   
@@ -14,16 +14,10 @@ class Comment < ActiveRecord::Base
     self["name"] || user.login
   end
   
+  alias_method :author, :name
+  
   def email
-    user.email
-  end
-  
-  def author
-    user.login
-  end
-  
-  def url
-    
+    self["email"] || user.email
   end
   
   def body
@@ -32,8 +26,11 @@ class Comment < ActiveRecord::Base
   
   private
     def set_name_and_email
-      self.name = user.login
-      self.email = user.email
+      if user
+        self.name = user.login
+        self.email = user.email
+        self.url = user.url
+      end
     end
 
 end

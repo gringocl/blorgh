@@ -59,3 +59,12 @@ thead tr td {
 #comment_form {
   margin-top: 15px;
 }
+
+.comment {
+  height:100px;
+}
+
+.comment .gravatar {
+  float: left;
+  padding-right: 15px;
+}

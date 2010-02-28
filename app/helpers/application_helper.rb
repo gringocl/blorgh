@@ -9,4 +9,9 @@ module ApplicationHelper
     time = post.created_at
     dated_post_path(:year => time.year, :month => time.month, :day => time.day, :id => post.permalink)
   end
+  
+  def gravatar(email)
+    image_tag('http://www.gravatar.com/avatar/' + Digest::MD5.hexdigest(email), :class => "gravatar")
+  end
+    
 end

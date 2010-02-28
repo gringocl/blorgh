@@ -1,2 +1,5 @@
-<strong><%= distance_of_time_in_words(Time.now, comment.created_at, true, :precision => 1) %> ago <%= comment.user %> wrote:</strong><br>
-<%= h(comment.text) %>
+<div class='comment'>
+  <%= gravatar(comment.email) %>
+  <strong><%= distance_of_time_in_words(Time.now, comment.created_at, true, :precision => 1) %> ago <%= comment.name %> wrote:</strong><br>
+  <%= h(comment.text) %>
+</div>
