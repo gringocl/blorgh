@@ -8,11 +8,11 @@ Given /^there is an (admin|user) with the login of "([^\"]*)" and password "([^\
 end
 
 Given /^the usual setup$/ do
-  u = User.make(:admin)
+  u = User.find_by_login("admin") || User.make(:admin)
   u.admin = true
   u.save!
   
-  User.make(:user)
+  User.find_by_login("user") || User.make(:user)
 end
 
 Given /^I am logged in as "([^\"]*)" with the password "([^\"]*)"$/ do |login, password|

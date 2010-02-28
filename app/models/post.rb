@@ -4,13 +4,12 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
-  before_save :set_permalink
+  before_validation_on_create :set_permalink
   
-  validates_presence_of :title
-  validates_presence_of :text
+  validates_presence_of :title, :text, :permalink
   
   def to_param
-    title.parameterize
+    permalink
   end
   
   private

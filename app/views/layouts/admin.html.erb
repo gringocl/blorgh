@@ -1,5 +1,4 @@
 <%= render :partial => "layouts/header" %>
-  <div id='menu'>
-  </div>
-  <%= yield %>
+<%= render :partial => "#{params[:controller]}/menu" %>
+<%= yield %>
 <% render :partial => "layouts/footer" %>

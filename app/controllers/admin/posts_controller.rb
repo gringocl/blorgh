@@ -1,6 +1,5 @@
 class Admin::PostsController < Admin::ApplicationController
   before_filter :find_post, :only => [:show, :edit, :update, :destroy]
-  layout "posts"
   def index
     @posts = Post.all
   end
@@ -41,7 +40,7 @@ class Admin::PostsController < Admin::ApplicationController
   private
   
     def find_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by_permalink(params[:id])
     end
     
 end

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find_by_permalink(params[:id])
+    @post = Post.find_by_permalink(params[:id], :include => { :comments => :user })
     @comment = @post.comments.build
   end
 end

@@ -11,5 +11,6 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :posts
   end
   
+  map.register 'register', :controller => "users", :action => "new"
   map.login 'login', :controller => "user_sessions", :action => "new"
 end
