@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.year_archive 'posts/:year/', :controller => "posts", :action => "archive"
   map.archive 'posts/:year/:month', :controller => "posts", :action => "archive"
+  map.dated_post ':year/:month/:day/:id', :controller => "posts", :action => "show"
   
   map.register 'register', :controller => "users", :action => "new"
   map.login 'login', :controller => "user_sessions", :action => "new"
