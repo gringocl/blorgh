@@ -11,6 +11,8 @@ Given /^the usual setup$/ do
   u = User.make(:admin)
   u.admin = true
   u.save!
+  
+  User.make(:user)
 end
 
 Given /^I am logged in as "([^\"]*)" with the password "([^\"]*)"$/ do |login, password|

@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => :posts
-  map.resources :posts, :only => [:index, :show]
+  map.resources :posts, :only => [:index, :show] do |post|
+    post.resources :comments, :only => [:create]
+  end
   map.resources :users
   map.resources :user_sessions
   

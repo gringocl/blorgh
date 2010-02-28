@@ -1,6 +1,5 @@
-<% inside_layout :application do %>
-  <div class='menu' id='admin_menu'>
-    <%= link_to "Posts", admin_posts_path %>
+<%= render :partial => "layouts/header" %>
+  <div id='menu'>
   </div>
   <%= yield %>
-<% end %>
+<% render :partial => "layouts/footer" %>

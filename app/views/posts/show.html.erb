@@ -1,0 +1,5 @@
+<%= render :partial => @post %>
+
+<% form_for([@post, @comment]) do |f| %>
+  <%= render :partial => "comments/form", :locals => { :f => f } %>
+<% end %>

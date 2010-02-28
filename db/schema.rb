@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100227045553) do
+ActiveRecord::Schema.define(:version => 20100228042823) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "text"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "spam_status", :default => "ham"
+    t.string   "name"
+    t.string   "email"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -17,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20100227045553) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
   create_table "users", :force => true do |t|
@@ -33,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20100227045553) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",             :default => false
+    t.string   "email"
   end
 
 end
