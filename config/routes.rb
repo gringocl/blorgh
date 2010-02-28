@@ -10,6 +10,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => "index"
     admin.resources :posts
   end
+
+  map.year_archive 'posts/:year/', :controller => "posts", :action => "archive"
+  map.archive 'posts/:year/:month', :controller => "posts", :action => "archive"
   
   map.register 'register', :controller => "users", :action => "new"
   map.login 'login', :controller => "user_sessions", :action => "new"

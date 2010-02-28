@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :logged_in?
   
+  before_filter :load_archive_dates
+  
   private
   
   def current_user_session
@@ -25,6 +27,12 @@ class ApplicationController < ActionController::Base
   
   def logged_in?
     !!current_user
+  end
+
+  def load_archive_dates
+    @months = Post.all(:select => "created_at", :group => "year(created_at), month(created_at)").map! do |post|
+      [post.created_at.strftime("%B"), post.created_at.strftime("%m"), post.created_at.strftime("%Y")]
+    end
   end
   
 end

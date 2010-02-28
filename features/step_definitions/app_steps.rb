@@ -26,6 +26,11 @@ Given /^I am logged in as "([^\"]*)" with the password "([^\"]*)"$/ do |login, p
   })
 end
 
+Given /^time is frozen$/ do
+  Time.stubs(:now).returns("01-01-2010 01:23:45".to_time)
+end
+
+
 When /^I follow the (.*?) link for the (.*?) called "([^\"]*)"$/ do |link_name, type, lookup|
   klass = type.classify.constantize
   if klass == Post
@@ -35,3 +40,8 @@ When /^I follow the (.*?) link for the (.*?) called "([^\"]*)"$/ do |link_name, 
     raise "I don't know how to look for a #{klass}!"
   end
 end
+
+Then /^I should see "([^\"]*)" before "([^\"]*)"$/ do |first, last|
+  Nokogiri::HTML(response.body).text.should match(/#{first}(.*?)#{last}/mis)
+end
+

@@ -1,12 +1,16 @@
+<% content_for :sidebar do %>
+  <% if logged_in? %>
+    Logged in as <%= current_user.login %>
+  <% else %>
+    <%= link_to "Login", login_path %> /
+    <%= link_to "Register", register_path %>
+  <% end %>
+  <h3>Archives</h3>
+  <% for month in @months %>
+    <%= link_to(month[0] + " " + month[-1], archive_path(:month => month[1], :year => month.last)) %><br>
+  <% end %>
+<% end %>
+
 <%= render :partial => "layouts/header" %>
-  <div id='menu'>
-    <% if logged_in? %>
-      Logged in as <%= current_user.login %>
-    <% else %>
-      <%= link_to "Login", login_path %> /
-      <%= link_to "Register", register_path %>
-    <% end %>
-    
-  </div>
   <%= yield %>
 <%= render :partial => "layouts/footer" %>
