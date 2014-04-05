@@ -4,4 +4,6 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+posts = Post.create([{title: "Getting Started with Ember", text: "TODO: Getting started with Ember guide"},
+                 {title: "Light Angular trolling", text: "TODO: think of pithy things to say about angular"}])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
